@@ -1,9 +1,5 @@
 <?php
 
-  if(isset($_GET['id'])) {
-    $id = htmlspecialchars($_GET['id']);
-  }
-
   function deliver_rating($id) {
   
 	switch($id){
@@ -35,10 +31,15 @@
 	}
      
 	echo  json_encode($resultado);
-    
-    
+        
   }
 
-  deliver_rating($id);
+  if(isset($_GET['id'])) {
+	  
+    $id = htmlspecialchars($_GET['id']);
+    
+    deliver_rating($id);
+
+  }
 
 ?>
